@@ -1,0 +1,8 @@
+{
+  "name": "garagevault-website",
+  "version": "1.0.0",
+  "description": "Static website for Garage Vault - Privacy Policy and Terms of Service",
+  "scripts": {
+    "build": "echo 'No build needed - static HTML'"
+  }
+}

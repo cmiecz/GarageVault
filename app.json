@@ -1,0 +1,66 @@
+{
+  "expo": {
+    "name": "Garage Vault",
+    "slug": "garagevault",
+    "scheme": "garagevault",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#254863"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.garagevault.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Garage Vault needs camera access to scan and identify items for your inventory using AI.",
+        "NSPhotoLibraryUsageDescription": "Garage Vault needs photo library access to select images of items for your inventory.",
+        "NSPhotoLibraryAddUsageDescription": "Garage Vault needs permission to save photos of your inventory items."
+      },
+      "usesAppleSignIn": false,
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.garagevault.app",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#254863"
+      }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Garage Vault to access your camera to scan items and QR codes."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Garage Vault to access your photos to select images of items."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id-here"
+      }
+    }
+  },
+  "cli": {
+    "appVersionSource": "remote"
+  }
+}

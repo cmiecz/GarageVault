@@ -21,9 +21,7 @@
         "NSCameraUsageDescription": "Garage Vault needs camera access to scan and identify items for your inventory using AI.",
         "NSPhotoLibraryUsageDescription": "Garage Vault needs photo library access to select images of items for your inventory.",
         "NSPhotoLibraryAddUsageDescription": "Garage Vault needs permission to save photos of your inventory items.",
-        "NSLocationWhenInUseUsageDescription": "Garage Vault uses your location to remind you about low stock items when you're near hardware stores like Home Depot or Lowe's.",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "Garage Vault uses your location to remind you about low stock items when you're near hardware stores, even when the app is in the background.",
-        "UIBackgroundModes": ["location"]
+        "NSLocationWhenInUseUsageDescription": "Garage Vault uses your location to remind you about low stock items when you're near hardware stores like Home Depot or Lowe's."
       },
       "usesAppleSignIn": false,
       "config": {
@@ -38,8 +36,7 @@
         "READ_EXTERNAL_STORAGE",
         "WRITE_EXTERNAL_STORAGE",
         "ACCESS_FINE_LOCATION",
-        "ACCESS_COARSE_LOCATION",
-        "ACCESS_BACKGROUND_LOCATION"
+        "ACCESS_COARSE_LOCATION"
       ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
@@ -59,16 +56,6 @@
           "photosPermission": "Allow Garage Vault to access your photos to select images of items."
         }
       ],
-      [
-        "expo-location",
-        {
-          "locationAlwaysAndWhenInUsePermission": "Garage Vault uses your location to remind you about low stock items when you're near hardware stores.",
-          "locationAlwaysPermission": "Garage Vault uses your location to remind you about low stock items when you're near hardware stores, even when the app is in the background.",
-          "locationWhenInUsePermission": "Garage Vault uses your location to remind you about low stock items when you're near hardware stores.",
-          "isAndroidBackgroundLocationEnabled": true,
-          "isAndroidForegroundServiceEnabled": true
-        }
-      ]
     ],
     "extra": {
       "eas": {

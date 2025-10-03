@@ -1,0 +1,165 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  🚀 YOUR PERSONAL DEPLOYMENT GUIDE                          ┃
+┃  Repo: https://github.com/cmiecz/GarageVault.git           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+TOTAL TIME: ~15 minutes
+STATUS: Website files ready ✅ | Need to upload to GitHub ⏳
+
+
+═══════════════════════════════════════════════════════════════
+STEP 1: UPLOAD WEBSITE FILES TO GITHUB (5-10 minutes)
+═══════════════════════════════════════════════════════════════
+
+You have 4 files ready in Vibecode that need to go to GitHub:
+✓ website/index.html
+✓ website/privacy.html
+✓ website/terms.html
+✓ website/README.md
+
+
+METHOD A: Upload via GitHub Web (EASIEST) 👈 RECOMMENDED
+────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/cmiecz/GarageVault
+
+2. Click "Add file" → "Upload files"
+
+3. Download these 4 files from Vibecode first:
+   - In Vibecode interface, download each file from /website/ folder
+   - Or ask me to provide the file contents to copy-paste
+
+4. Drag and drop all 4 files into GitHub
+
+5. In the commit message, type: "Add legal pages for App Store"
+
+6. Click "Commit changes"
+
+7. ✅ Verify at: https://github.com/cmiecz/GarageVault/tree/main/website
+
+
+METHOD B: Manual File Creation (If can't download)
+────────────────────────────────────────────────────────────
+
+For each file:
+
+1. Go to: https://github.com/cmiecz/GarageVault
+2. Click "Add file" → "Create new file"
+3. Type filename: website/index.html (creates folder + file)
+4. Open the file in Vibecode workspace (see below for paths)
+5. Copy ALL contents
+6. Paste into GitHub editor
+7. Click "Commit new file"
+8. Repeat for all 4 files
+
+File paths in Vibecode:
+→ /home/user/workspace/website/index.html
+→ /home/user/workspace/website/privacy.html
+→ /home/user/workspace/website/terms.html
+→ /home/user/workspace/website/README.md
+
+
+═══════════════════════════════════════════════════════════════
+STEP 2: DEPLOY TO RENDER.COM (5 minutes)
+═══════════════════════════════════════════════════════════════
+
+1. Go to: https://render.com
+
+2. Sign in or create free account
+
+3. Click blue "New +" button (top right)
+
+4. Select "Static Site"
+
+5. Click "Connect account" to link GitHub
+
+6. Select repository: "cmiecz/GarageVault"
+
+7. Configure exactly like this:
+   ┌─────────────────────────────────────────────────────┐
+   │ Name: garagevault                                   │
+   │ Branch: main                                        │
+   │ Root Directory: website                             │
+   │ Build Command: [leave empty]                        │
+   │ Publish Directory: website                          │
+   └─────────────────────────────────────────────────────┘
+
+8. Click "Create Static Site"
+
+9. Wait 2-3 minutes while it deploys ⏳
+
+10. 🎉 COPY YOUR URL! It will look like:
+    https://garagevault.onrender.com
+    or
+    https://garagevault-XXXX.onrender.com
+
+11. Test your pages:
+    ✓ https://YOUR-URL.onrender.com/privacy.html
+    ✓ https://YOUR-URL.onrender.com/terms.html
+
+
+═══════════════════════════════════════════════════════════════
+STEP 3: UPDATE APP WITH YOUR RENDER URL (2 minutes)
+═══════════════════════════════════════════════════════════════
+
+Once you have your Render URL, tell me what it is and I'll update
+the app for you! Or you can do it yourself:
+
+Edit: /home/user/workspace/src/screens/SettingsScreen.tsx
+
+Replace 3 URLs:
+
+LINE 247:
+OLD: "https://yourdomain.com/privacy"
+NEW: "https://YOUR-URL.onrender.com/privacy.html"
+
+LINE 257:
+OLD: "https://yourdomain.com/terms"
+NEW: "https://YOUR-URL.onrender.com/terms.html"
+
+LINE 267:
+OLD: "mailto:support@yourdomain.com"
+NEW: "mailto:YOUR-EMAIL@gmail.com"
+
+
+═══════════════════════════════════════════════════════════════
+STEP 4: TEST & BUILD (3 minutes)
+═══════════════════════════════════════════════════════════════
+
+1. Open app in Vibecode preview
+2. Go to Settings
+3. Tap each link to verify they work:
+   ✓ Privacy Policy → opens in browser
+   ✓ Terms of Service → opens in browser
+   ✓ Support → opens email
+
+4. Ready for TestFlight build:
+   ```
+   npm install -g eas-cli
+   eas login
+   eas build --platform ios --profile production
+   ```
+
+
+═══════════════════════════════════════════════════════════════
+QUICK CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+□ Files uploaded to GitHub repo
+□ Website deployed on Render.com
+□ Copied Render URL
+□ Updated 3 URLs in SettingsScreen.tsx
+□ Tested links in app
+□ Ready to build!
+
+
+═══════════════════════════════════════════════════════════════
+NEED HELP?
+═══════════════════════════════════════════════════════════════
+
+Just tell me:
+1. "I need help uploading files to GitHub" - I'll provide file contents
+2. "I deployed to Render, my URL is: ___" - I'll update the app
+3. "Something's not working" - I'll troubleshoot
+
+Let's get this done! 🚀

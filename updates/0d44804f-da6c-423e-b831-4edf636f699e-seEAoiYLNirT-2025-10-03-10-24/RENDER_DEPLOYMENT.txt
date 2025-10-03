@@ -1,0 +1,166 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  🚀 GARAGE VAULT - RENDER.COM DEPLOYMENT INSTRUCTIONS      ┃
+┃                                                              ┃
+┃  Follow these steps to host your legal pages for Apple     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+📂 WHAT'S READY
+═══════════════════════════════════════════════════════════════
+
+✅ website/index.html      - Landing page with app description
+✅ website/privacy.html    - Complete privacy policy (Apple required)
+✅ website/terms.html      - Complete terms of service (Apple required)
+✅ website/README.md       - Full deployment documentation
+
+All files are styled with your #254863 color scheme and ready to deploy!
+
+
+🎯 DEPLOYMENT STEPS (10 MINUTES)
+═══════════════════════════════════════════════════════════════
+
+STEP 1: PUSH TO GITHUB (If not already done)
+────────────────────────────────────────────────────────────
+```bash
+cd /home/user/workspace
+git add website/
+git commit -m "Add legal pages for App Store"
+git push origin main
+```
+
+Note: Replace 'main' with your branch name if different
+
+
+STEP 2: DEPLOY ON RENDER.COM
+────────────────────────────────────────────────────────────
+1. Go to: https://render.com
+2. Sign in to your account
+3. Click the blue "New +" button (top right)
+4. Select "Static Site"
+5. Connect your GitHub repository:
+   - Click "Connect account" if needed
+   - Select your workspace repository
+   - Click "Connect"
+
+6. Configure the static site:
+
+   ┌─────────────────────────────────────────────────────┐
+   │ Name: garagevault-website                           │
+   │ Branch: main (or your default branch)               │
+   │ Root Directory: website                             │
+   │ Build Command: (leave blank)                        │
+   │ Publish Directory: website                          │
+   └─────────────────────────────────────────────────────┘
+
+7. Click "Create Static Site"
+8. Wait 2-3 minutes for deployment
+9. ✅ You'll get a URL like: https://garagevault-website.onrender.com
+
+
+STEP 3: COPY YOUR URLS
+────────────────────────────────────────────────────────────
+After deployment, Render will show your site URL. Your pages will be at:
+
+✓ Privacy:  https://YOUR-SITE.onrender.com/privacy.html
+✓ Terms:    https://YOUR-SITE.onrender.com/terms.html
+✓ Home:     https://YOUR-SITE.onrender.com/
+
+
+STEP 4: UPDATE THE APP
+────────────────────────────────────────────────────────────
+Open: src/screens/SettingsScreen.tsx
+
+Find and replace THREE URLs:
+
+1. LINE 247 - Privacy Policy
+   OLD: onPress={() => Linking.openURL("https://yourdomain.com/privacy")}
+   NEW: onPress={() => Linking.openURL("https://YOUR-SITE.onrender.com/privacy.html")}
+
+2. LINE 257 - Terms of Service
+   OLD: onPress={() => Linking.openURL("https://yourdomain.com/terms")}
+   NEW: onPress={() => Linking.openURL("https://YOUR-SITE.onrender.com/terms.html")}
+
+3. LINE 267 - Support Email
+   OLD: onPress={() => Linking.openURL("mailto:support@yourdomain.com")}
+   NEW: onPress={() => Linking.openURL("mailto:YOUR-EMAIL@gmail.com")}
+
+Save the file!
+
+
+STEP 5: TEST THE LINKS
+────────────────────────────────────────────────────────────
+1. Open the app on your device/simulator
+2. Navigate to Settings (gear icon)
+3. Tap "Privacy Policy" → Should open in browser ✓
+4. Tap "Terms of Service" → Should open in browser ✓
+5. Tap "Support & Feedback" → Should open email app ✓
+
+
+STEP 6: YOU'RE READY FOR TESTFLIGHT! 🎉
+────────────────────────────────────────────────────────────
+Now run:
+
+```bash
+npm install -g eas-cli
+eas login
+eas build --platform ios --profile production
+```
+
+
+🎨 OPTIONAL: CUSTOM DOMAIN
+═══════════════════════════════════════════════════════════════
+
+Want garagevault.com instead of .onrender.com?
+
+1. Buy domain from Namecheap/GoDaddy ($10-15/year)
+2. In Render dashboard → Settings → Custom Domain
+3. Add your domain
+4. Update DNS records at your registrar:
+   - Add CNAME record pointing to Render
+5. Wait 1-24 hours for DNS propagation
+6. Update app URLs to use custom domain
+
+
+📋 QUICK CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+Before TestFlight:
+□ Website deployed to Render
+□ Privacy URL working in browser
+□ Terms URL working in browser
+□ Updated SettingsScreen.tsx (3 URLs)
+□ Tested all links in app
+□ URLs open correctly in browser/email
+□ Ready to run EAS build!
+
+
+🆘 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+❌ "404 Not Found" on Render
+   → Check "Root Directory" and "Publish Directory" both set to: website
+
+❌ Links don't work in app
+   → Make sure you added .html extension (privacy.html, not just privacy)
+   → Verify URLs start with https://
+
+❌ Website not updating
+   → Render auto-deploys when you push to GitHub
+   → Or manually trigger deploy from Render dashboard
+
+❌ Can't connect GitHub to Render
+   → Make sure repo is public OR
+   → Grant Render access to private repos in GitHub settings
+
+
+📞 NEED HELP?
+═══════════════════════════════════════════════════════════════
+
+• Render Docs: https://render.com/docs/static-sites
+• Detailed Guide: See website/README.md
+• Update Guide: See UPDATE_URLS_AFTER_RENDER.md
+• TestFlight Checklist: See TESTFLIGHT_CHECKLIST.md
+
+
+═══════════════════════════════════════════════════════════════
+         Good luck with your TestFlight deployment! 🚀
+═══════════════════════════════════════════════════════════════

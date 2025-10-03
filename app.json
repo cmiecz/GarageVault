@@ -3,7 +3,7 @@
     "name": "Garage Vault",
     "slug": "garagevault",
     "scheme": "garagevault",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -16,11 +16,13 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.garagevault.app",
-      "buildNumber": "1",
+      "buildNumber": "7",
       "infoPlist": {
         "NSCameraUsageDescription": "Garage Vault needs camera access to scan and identify items for your inventory using AI.",
         "NSPhotoLibraryUsageDescription": "Garage Vault needs photo library access to select images of items for your inventory.",
-        "NSPhotoLibraryAddUsageDescription": "Garage Vault needs permission to save photos of your inventory items."
+        "NSPhotoLibraryAddUsageDescription": "Garage Vault needs permission to save photos of your inventory items.",
+        "NSLocationWhenInUseUsageDescription": "Garage Vault uses location access to help organize your inventory by rooms or storage locations.",
+        "NSContactsUsageDescription": "Garage Vault may access contacts to help you share inventory information or collaborate with household members."
       },
       "usesAppleSignIn": false,
       "config": {
@@ -31,9 +33,11 @@
       "package": "com.garagevault.app",
       "versionCode": 1,
       "permissions": [
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
       ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
@@ -56,7 +60,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "your-project-id-here"
+        "projectId": "4c33f041-ffd4-4883-a276-68e380b447b1"
       }
     }
   },
